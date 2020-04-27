@@ -110,9 +110,6 @@ CHANNEL_LAYERS = {
     },
 }
 
-IS_CI = os.environ.get('IS_CI', False)
-if not IS_CI:
-    django_heroku.settings(locals())
 
 # CHANNEL_LAYERS = {
 #     "default": {
@@ -163,3 +160,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+IS_CI = os.environ.get('IS_CI', False)
+if not IS_CI:
+    django_heroku.settings(locals())
