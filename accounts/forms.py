@@ -28,7 +28,7 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('first_name', 'last_name','username' , 'email', 'password1', 'password2', )
 
-<<<<<<< HEAD
+
     def save(self):
         user = User(
             email=self.validated_data['email'],
@@ -41,17 +41,12 @@ class SignUpForm(UserCreationForm):
         user.set_password(password1)
         user.save()
         return user
+       
+
         def clean(self):
-=======
-    def clean(self):
->>>>>>> 3affa2a1f66b6d2b7a9e681b75d6d1655974dc3a
             data = self.cleaned_data
             if "password1" in data and "password2" in data:
                 if data["password1"] != data["password2"]:
                     self._errors["password2"] = self.error_class(['Passwords do not match.'])
                     del data['password2']    
-<<<<<<< HEAD
             return data
-=======
-            return data
->>>>>>> 3affa2a1f66b6d2b7a9e681b75d6d1655974dc3a
