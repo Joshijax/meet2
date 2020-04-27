@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 ASGI_APPLICATION = "cfehome.routing.application"
+ASGI_THREADS = 5
 ROOT_URLCONF = 'cfehome.urls'
 
 TEMPLATES = [
@@ -100,16 +101,23 @@ DATABASES = {
 # }
 
 
-
-
-CHANNEL_LAYERS = {
+ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("localhost", 6379)],
+            'hosts': [os.environ.get('REDIS_URL')],
         },
     },
 }
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("localhost", 6379)],
+#         },
+#     },
+# }
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
