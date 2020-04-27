@@ -29,18 +29,6 @@ class SignUpForm(UserCreationForm):
         fields = ('first_name', 'last_name','username' , 'email', 'password1', 'password2', )
 
 
-    def save(self):
-        user = User(
-            email=self.validated_data['email'],
-            username=self.validated_data['username'],
-        )
-        password1 = self.validated_data['password1']
-        password2 = self.validated_data['password2']
-        if password1 != password2:
-            raise serializers.ValidationError({'password': 'password does not match'})
-        user.set_password(password1)
-        user.save()
-        return user
        
 
         def clean(self):
