@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 import django_heroku
 import os
-import urlparse
-
+from urllib.parse import urlparse
+import redis
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -120,7 +120,7 @@ DATABASES = {
 #     },
 # }
 
-redis_url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
+redis_url = urlparse(os.environ.get('REDISCLOUD_URL'))
 CACHES = {
         'default': {
             'BACKEND': 'redis_cache.RedisCache',
