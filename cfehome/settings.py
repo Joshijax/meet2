@@ -110,15 +110,26 @@ DATABASES = {
 #     },
 # }
 
-
 CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("localhost", 6379)],
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [os.environ.get('REDIS_URL', 'redis://h:pab42872f1bafa041cca32209796e5a57ca14c7bc24c98b68e98253acddb7e18e@ec2-54-243-34-51.compute-1.amazonaws.com:19599')],
         },
     },
 }
+
+
+
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("localhost", 6379)],
+#         },
+#     },
+# }
 
 
 # Password validation
