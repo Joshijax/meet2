@@ -111,14 +111,14 @@ DATABASES = {
 #     },
 # }
 
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [os.environ.get('Rredis-15963.c10.us-east-1-3.ec2.cloud.redislabs.com:15963')],
-        },
-    },
-}
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [os.environ.get('Rredis-15963.c10.us-east-1-3.ec2.cloud.redislabs.com:15963')],
+#         },
+#     },
+# }
 
 # redis_url = urlparse(os.environ.get('REDISCLOUD_URL'))
 # CACHES = {
