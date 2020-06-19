@@ -132,28 +132,28 @@ CHANNEL_LAYERS = {
 #     }
 # }
 
-# redis_url = urlparse(os.environ.get('REDISTOGO_URL', 'redis://localhost:6959'))
+redis_url = urlparse(os.environ.get('REDISTOGO_URL', 'redis://localhost:6959'))
 
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'redis_cache.RedisCache',
-#         'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
-#         'OPTIONS': {
-#             'DB': 0,
-#             'PASSWORD': redis_url.password,
-#         }
-#     }
-# }
-
-
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("localhost", 6379)],
-        },
-    },
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
+        'OPTIONS': {
+            'DB': 0,
+            'PASSWORD': redis_url.password,
+        }
+    }
 }
+
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("localhost", 6379)],
+#         },
+#     },
+# }
 
 
 # Password validation
