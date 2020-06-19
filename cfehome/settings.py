@@ -132,7 +132,7 @@ DATABASES = {
 #     }
 # }
 
-redis_url = urlparse(os.environ.get('REDISTOGO_URL', 'redis://localhost:6959'))
+redis_url = urlparse(os.environ.get('REDISTOGO_URL', 'redis://redistogo:4dc73fec4d8bb8df3a46f61beceee90a@pike.redistogo.com:11407'))
 
 CACHES = {
     'default': {
