@@ -111,37 +111,49 @@ DATABASES = {
 #     },
 # }
 
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             "hosts": [os.environ.get('REDIS_URL', 'redis://h:pab42872f1bafa041cca32209796e5a57ca14c7bc24c98b68e98253acddb7e18e@ec2-54-243-34-51.compute-1.amazonaws.com:19599')],
-#         },
-#     },
-# }
-
-redis_url = urlparse(os.environ.get('REDISCLOUD_URL'))
-CACHES = {
-        'default': {
-            'BACKEND': 'redis_cache.RedisCache',
-            'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
-            'OPTIONS': {
-                'PASSWORD': redis_url.password,
-                'DB': 0,
-        }
-    }
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [os.environ.get('Rredis-15963.c10.us-east-1-3.ec2.cloud.redislabs.com:15963')],
+        },
+    },
 }
 
-
-
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels_redis.core.RedisChannelLayer",
-#         "CONFIG": {
-#             "hosts": [("localhost", 6379)],
-#         },
-#     },
+# redis_url = urlparse(os.environ.get('REDISCLOUD_URL'))
+# CACHES = {
+#         'default': {
+#             'BACKEND': 'redis_cache.RedisCache',
+#             'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
+#             'OPTIONS': {
+#                 'PASSWORD': redis_url.password,
+#                 'DB': 0,
+#         }
+#     }
 # }
+
+# redis_url = urlparse(os.environ.get('REDISTOGO_URL', 'redis://localhost:6959'))
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'redis_cache.RedisCache',
+#         'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
+#         'OPTIONS': {
+#             'DB': 0,
+#             'PASSWORD': redis_url.password,
+#         }
+#     }
+# }
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+    },
+}
 
 
 # Password validation
