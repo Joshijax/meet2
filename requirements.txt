@@ -45,7 +45,7 @@ django-storages==1.9.1
 django-user-accounts==3.0.0
 django-webpush==0.3.2
 django-widget-tweaks==1.4.5
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 dnspython==1.16.0
 docutils==0.15.2
 Flask==1.1.1
