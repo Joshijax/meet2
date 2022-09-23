@@ -81,7 +81,7 @@ pamqp==2.3.0
 passlib==1.7.2
 Pillow==7.0.0
 proglog==0.1.9
-protobuf==3.6.1
+protobuf==3.18.3
 psycopg2==2.8.5
 py-moneyed==0.8.0
 py-vapid==1.7.0
